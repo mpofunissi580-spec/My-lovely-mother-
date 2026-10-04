@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Mom ❤️</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: "Georgia", serif;
+        background:
+            radial-gradient(circle at 20% 20%, rgba(255,255,255,.7) 0 2px, transparent 3px),
+            radial-gradient(circle at 80% 70%, rgba(255,255,255,.5) 0 2px, transparent 3px),
+            linear-gradient(135deg, #ffd6e7, #f9c5d1, #e8c7ff);
+        background-size: 45px 45px, 65px 65px, cover;
+        color: #5a2947;
+        overflow-x: hidden;
+    }
+
+    .page {
+        min-height: 100vh;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        padding: 25px 15px;
+        position: relative;
+    }
+
+    .page.active {
+        display: flex;
+        animation: fadeIn .8s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .card {
+        width: 100%;
+        max-width: 600px;
+        background: rgba(255,255,255,.88);
+        padding: 35px 25px;
+        border-radius: 30px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(110,50,90,.25);
+        border: 2px solid rgba(255,255,255,.8);
+        backdrop-filter: blur(8px);
+    }
+
+    .flower {
+        font-size: 55px;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%,100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    h1 {
+        font-size: 34px;
+        margin: 15px 0;
+        color: #a83263;
+    }
+
+    h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+        color: #a83263;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        color: #74405d;
+        font-style: italic;
+    }
+
+    input {
+        width: 100%;
+        padding: 15px;
+        border-radius: 15px;
+        border: 2px solid #e8a9c2;
+        outline: none;
+        font-size: 16px;
+        font-family: inherit;
+        margin: 15px 0;
+        background: #fffafa;
+    }
+
+    input:focus {
+        border-color: #a83263;
+        box-shadow: 0 0 10px rgba(168,50,99,.2);
+    }
+
+    button {
+        border: none;
+        padding: 14px 28px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #c94f7c, #9e3561);
+        color: white;
+        font-size: 17px;
+        font-family: inherit;
+        cursor: pointer;
+        box-shadow: 0 7px 15px rgba(150,40,90,.25);
+        transition: .25s;
+        margin-top: 8px;
+    }
+
+    button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(150,40,90,.3);
+    }
+
+    button:active {
+        transform: scale(.96);
+    }
+
+    .error {
+        color: #c62828;
+        font-weight: bold;
+        min-height: 25px;
+        margin-top: 10px;
+    }
+
+    .progress {
+        font-size: 14px;
+        color: #a83263;
+        margin-bottom: 12px;
+        font-weight: bold;
+    }
+
+    .letter {
+        text-align: left;
+        background: rgba(255,250,252,.9);
+        padding: 25px;
+        border-radius: 20px;
+        border: 1px solid #f1bfd1;
+        margin-top: 20px;
+    }
+
+    .letter p {
+        font-size: 17px;
+        line-height: 1.8;
+        margin-bottom: 17px;
+    }
+
+    .signature {
+        text-align: center;
+        font-size: 24px;
+        color: #a83263;
+        font-weight: bold;
+        margin-top: 25px;
+    }
+
+    .heart {
+        position: fixed;
+        pointer-events: none;
+        animation: rise 5s linear forwards;
+        z-index: 10;
+    }
+
+    @keyframes rise {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(-110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .small {
+        font-size: 14px;
+        opacity: .75;
+        margin-top: 20px;
+    }
+
+    @media(max-width: 500px) {
+        h1 {
+            font-size: 28px;
+        }
+
+        h2 {
+            font-size: 22px;
+        }
+
+        .card {
+            padding: 28px 18px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .letter p {
+            font-size: 16px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- WELCOME PAGE -->
+<section class="page active" id="welcome">
+    <div class="card">
+
+        <div class="flower">🌹</div>
+
+        <h1>For My Amazing Mom ❤️</h1>
+
+        <p>
+            Mom, I made something special just for you.
+            Before you see your message, you have to answer
+            a few little questions about us. 🥹💕
+        </p>
+
+        <p class="subtitle">
+            Let's see how well you know your crazy boy. 🤭
+        </p>
+
+        <button onclick="startQuiz()">
+            Start ❤️
+        </button>
+
+        <p class="small">
+            Made with love especially for Mom 🌸
+        </p>
+
+    </div>
+</section>
+
+
+<!-- QUIZ PAGE -->
+<section class="page" id="quiz">
+    <div class="card">
+
+        <div class="flower" id="questionEmoji">🌸</div>
+
+        <div class="progress" id="progress">
+            Question 1 of 5
+        </div>
+
+        <h2 id="question"></h2>
+
+        <p id="questionHint">
+            Just type your answer below ❤️
+        </p>
+
+        <input
+            type="text"
+            id="answer"
+            placeholder="Type your answer here..."
+            autocomplete="off"
+        >
+
+        <button onclick="nextQuestion()">
+            Continue 💕
+        </button>
+
+        <div class="error" id="error"></div>
+
+    </div>
+</section>
+
+
+<!-- LETTER PAGE -->
+<section class="page" id="letterPage">
+    <div class="card">
+
+        <div class="flower">🌹💕</div>
+
+        <h1>For You, Mom</h1>
+
+        <p class="subtitle">
+            You made it! 🥹❤️
+        </p>
+
+        <div class="letter">
+
+            <p>
+                Morning Mom 🌹 💕
+            </p>
+
+            <p>
+                I just wanted to say thank you for everything and tell u how much I love and appreciate you. Thank you for every sacrifice you’ve made, every prayer you’ve said for me, and every time you put my happiness before your own🥹✨.
+            </p>
+
+            <p>
+                I may not say it enough, but I notice all the little things you do and I’m truly grateful for them. You’ve been my strength on difficult days, my comfort when life gets hard, and my biggest supporter no matter what.
+            </p>
+
+            <p>
+                Your love has shaped me into who I am today, and I’ll never take that for granted. I hope you always know how special you are to me🥺❤️.
+            </p>
+
+            <p>
+                No matter how old I get or where life takes me, you’ll always be one of the greatest blessings in my life.
+            </p>
+
+            <p>
+                Having a Mom like u is such a flex 😭❤️ thank you Mom for not giving up on Ur crazy boy.
+            </p>
+
+            <p>
+                I love you so much Mom 💕
+            </p>
+
+            <div class="signature">
+                ❤️ Your crazy boy ❤️
+            </div>
+
+        </div>
+
+        <button onclick="makeHearts()">
+            One More Surprise 🌹
+        </button>
+
+    </div>
+</section>
+
+
+<script>
+
+const questions = [
+    {
+        text: "Our favourite moment, Mom? 🌹",
+        emoji: "🌹",
+        required: false
+    },
+
+    {
+        text: "My favourite colour, Chommie? 🎨",
+        emoji: "🎨",
+        required: false
+    },
+
+    {
+        text: "Our favourite song? 🎶",
+        emoji: "🎶",
+        required: false
+    },
+
+    {
+        text: "Ur favourite hobby, Mom? 🌸",
+        emoji: "🌸",
+        required: false
+    },
+
+    {
+        text: "When is my birthday, Mom? 🎂",
+        emoji: "🎂",
+        required: true
+    }
+];
+
+let currentQuestion = 0;
+
+
+function showPage(id) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo(0,0);
+}
+
+
+function startQuiz() {
+
+    currentQuestion = 0;
+
+    showPage("quiz");
+
+    loadQuestion();
+}
+
+
+function loadQuestion() {
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("question").textContent = q.text;
+
+    document.getElementById("questionEmoji").textContent = q.emoji;
+
+    document.getElementById("progress").textContent =
+        "Question " + (currentQuestion + 1) + " of " + questions.length;
+
+    document.getElementById("answer").value = "";
+
+    document.getElementById("error").textContent = "";
+
+    if (q.required) {
+
+        document.getElementById("questionHint").textContent =
+            "This one is important, Mom 👀❤️";
+
+        document.getElementById("answer").placeholder =
+            "Enter the birthday...";
+
+    } else {
+
+        document.getElementById("questionHint").textContent =
+            "Just type your answer below ❤️";
+
+        document.getElementById("answer").placeholder =
+            "Type your answer here...";
+    }
+
+    setTimeout(() => {
+        document.getElementById("answer").focus();
+    }, 200);
+}
+
+
+function nextQuestion() {
+
+    const input =
+        document.getElementById("answer").value.trim();
+
+    const error =
+        document.getElementById("error");
+
+    // Prevent empty answers on the first four questions
+    if (input === "") {
+
+        error.textContent =
+            "Please type something first Mom 🥹❤️";
+
+        return;
+    }
+
+
+    // Birthday question
+    if (currentQuestion === 4) {
+
+        const correctAnswers = [
+            "19 march 2007",
+            "19 march, 2007",
+            "19/03/2007",
+            "19-03-2007",
+            "19.03.2007",
+            "19 march 2007"
+        ];
+
+        const normalized =
+            input.toLowerCase().replace(/\s+/g, " ").trim();
+
+        if (!correctAnswers.includes(normalized)) {
+
+            error.textContent =
+                "Hmmmm 😭 that's not my birthday, Mom. Try again ❤️";
+
+            document.getElementById("answer").value = "";
+
+            return;
+        }
+
+        // Correct birthday
+        error.textContent = "";
+
+        createHeartBurst();
+
+        setTimeout(() => {
+            showPage("letterPage");
+        }, 900);
+
+        return;
+    }
+
+
+    // First four questions
+    currentQuestion++;
+
+    loadQuestion();
+}
+
+
+function createHeartBurst() {
+
+    const symbols = ["❤️","💕","🌹","💖","🌸","✨"];
+
+    for (let i = 0; i < 25; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.bottom = "-30px";
+
+        heart.style.fontSize =
+            (18 + Math.random() * 25) + "px";
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6500);
+    }
+}
+
+
+function makeHearts() {
+
+    createHeartBurst();
+
+    setTimeout(() => {
+
+        alert(
+            "Mom, no matter how old I get, I'll always be your crazy boy. ❤️🌹 I love you!"
+        );
+
+    }, 700);
+}
+
+
+// Allow pressing Enter instead of tapping Continue
+document.getElementById("answer").addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        nextQuestion();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
